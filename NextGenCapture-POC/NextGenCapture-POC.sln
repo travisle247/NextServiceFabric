@@ -7,6 +7,10 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "NextGenCapture_POC", "NextG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextGenCapture_ServiceFabric", "NextGenCapture_ServiceFabric\NextGenCapture_ServiceFabric.csproj", "{735717AC-29D6-4429-AD8B-5EC2EE68D159}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextGenCapture_API", "NextGenCapture_API\NextGenCapture_API.csproj", "{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextGenCapture_Common", "NextGenCapture_Common\NextGenCapture_Common.csproj", "{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,22 @@ Global
 		{735717AC-29D6-4429-AD8B-5EC2EE68D159}.Release|Any CPU.Build.0 = Release|Any CPU
 		{735717AC-29D6-4429-AD8B-5EC2EE68D159}.Release|x64.ActiveCfg = Release|Any CPU
 		{735717AC-29D6-4429-AD8B-5EC2EE68D159}.Release|x64.Build.0 = Release|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Debug|x64.Build.0 = Debug|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Release|x64.ActiveCfg = Release|Any CPU
+		{AD77CFDA-85D6-42D0-BE3C-8AB19C0976D5}.Release|x64.Build.0 = Release|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Debug|x64.Build.0 = Debug|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{128ED3F6-E3D6-4EE3-98DB-3C33490780CA}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
