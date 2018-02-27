@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.ServiceFabric.Services.Communication.AspNetCore;
 using Microsoft.ServiceFabric.Services.Communication.Runtime;
@@ -40,6 +41,15 @@ namespace NextGenCapture_API
                                     .ConfigureServices(
                                         services => services
                                             .AddSingleton<StatelessServiceContext>(serviceContext))
+                                            .ConfigureAppConfiguration((hostingContext, config)=>
+                                            {
+                                                var env=hostingContext.HostingEnvironment;
+                                                config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                                                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
+
+                                                config.AddEnvironmentVariables();
+
+                                            })
                                     .UseContentRoot(Directory.GetCurrentDirectory())
                                     .UseStartup<Startup>()
                                     .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
