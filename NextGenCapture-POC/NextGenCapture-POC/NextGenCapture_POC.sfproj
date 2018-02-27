@@ -29,11 +29,12 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <ProjectReference Include="..\NextGenCapture_API\NextGenCapture_API.csproj" />
+    <ProjectReference Include="..\NextGenCapture_RabbitMQService\NextGenCapture_RabbitMQService.csproj" />
+    <ProjectReference Include="..\NextGenCapture_ServiceFabric\NextGenCapture_ServiceFabric.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NextGenCapture_API\NextGenCapture_API.csproj" />
-    <ProjectReference Include="..\NextGenCapture_ServiceFabric\NextGenCapture_ServiceFabric.csproj" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
