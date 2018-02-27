@@ -15,6 +15,8 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 using NextGenCapture_Common.Model.APIGateway;
+using Microsoft.ServiceFabric.Services.Remoting.Client;
+using NextGenCapture_RabbitMQService.Model;
 
 namespace NextGenCapture_API.Controllers
 {
@@ -169,6 +171,10 @@ namespace NextGenCapture_API.Controllers
                             Status = "Ready"
                         };
 
+
+                        var rabbitMqServiceInstance= ServiceProxy.Create<IMQService>(new Uri("fabric:/NextGenCapture_POC/NextGenCapture_RabbitMQService"));
+
+                        await rabbitMqServiceInstance.SendToRabbitMessageQueue(batch);
                     }
                     catch(Exception ex)
                     {
