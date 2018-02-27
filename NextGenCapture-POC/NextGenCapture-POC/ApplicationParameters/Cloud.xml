@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/NextGenCapture_POC" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="NextGenCapture_API_InstanceCount" Value="-1" />
     <Parameter Name="NextGenCapture_ServiceFabric_InstanceCount" Value="-1" />
   </Parameters>
 </Application>
