@@ -23,10 +23,15 @@ namespace NextGenCapture_RabbitMQService
     {
         private const string exchangeName = "CaptureExchange";
         private const string routingKey = "WebService";
+        private CodePackageActivationContext activationContext;
+        private ConfigurationPackage configurationPackage;
 
         public NextGenCapture_RabbitMQService(StatelessServiceContext context)
             : base(context)
-        { }
+        {
+            activationContext = FabricRuntime.GetActivationContext();
+            configurationPackage = activationContext.GetConfigurationPackageObject("Config");          
+        }
 
         public Task<MessageResponse> ReceiveFromRabbitMessageQueue()
         {
@@ -41,7 +46,15 @@ namespace NextGenCapture_RabbitMQService
                 Success = true
             };
 
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+
+            ConnectionFactory factory = new ConnectionFactory
+            {
+                UserName = configurationPackage.Settings.Sections["RabbitMQConnection"].Parameters["Username"].Value,
+                Password = configurationPackage.Settings.Sections["RabbitMQConnection"].Parameters["Password"].Value,
+                VirtualHost = configurationPackage.Settings.Sections["RabbitMQConnection"].Parameters["VirtualHost"].Value,
+                HostName = configurationPackage.Settings.Sections["RabbitMQConnection"].Parameters["HostName"].Value,
+                Port = AmqpTcpEndpoint.UseDefaultPort
+            };
             try
             {
                 using (var connection = factory.CreateConnection())
@@ -52,7 +65,7 @@ namespace NextGenCapture_RabbitMQService
 
                         var ms = new MemoryStream();
 
-                        using (BsonWriter writer = new BsonWriter(ms))
+                        using (var writer = new BsonWriter(ms))
                         {
                             JsonSerializer serializer = new JsonSerializer();
                             serializer.Serialize(writer, batch);
